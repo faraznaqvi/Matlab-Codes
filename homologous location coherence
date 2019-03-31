@@ -1,0 +1,11 @@
+v = [];
+homolocation_coherrence = [];
+for i = 1:length(power)
+for j = 1:length(lst)
+for z = 1:4
+v = [v,(power(i,lst(1,j)*5-5+z)*power(i,lst2(1,j)*5-5+z)).^2/abs(power(i,lst(1,j)*5-5+z))*abs(power(i,lst2(1,j)*5-5+z))];
+end
+end
+homolocation_coherrence = [homolocation_coherrence;v];
+v = [];
+end
