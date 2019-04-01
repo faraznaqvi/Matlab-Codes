@@ -1,0 +1,32 @@
+relative_set = [];
+for j=1:length(total_training_data)
+	for i = 1:20
+		[c,l] = wavedec(total_training_data(i,:,1,j),5,'db4');
+		A5 = wrcoef('a',c,l,'db4',5);
+		D1 = wrcoef('d',c,l,'db4',1);
+		D2 = wrcoef('d',c,l,'db4',2);
+		D3 = wrcoef('d',c,l,'db4',3);
+		D4 = wrcoef('d',c,l,'db4',4);
+		D5 = wrcoef('d',c,l,'db4',5);
+		relative_energy_A5 = sum(A5.*conj(A5))/set(i,6);
+		relative_energy_D1 = sum(A5.*conj(D1))/set(i,1);
+		relative_energy_D2 = sum(A5.*conj(D2))/set(i,2);
+		relative_energy_D3 = sum(A5.*conj(D3))/set(i,3);
+		relative_energy_D4 = sum(A5.*conj(D4))/set(i,4);
+		relative_energy_D5 = sum(D5.*conj(D5))/set(i,5);
+		actual_energy_A5 = sum(A5.*conj(A5));
+		actual_energy_D1 = sum(A5.*conj(D1));
+		actual_energy_D2 = sum(A5.*conj(D2));
+		actual_energy_D3 = sum(A5.*conj(D3));
+		actual_energy_D4 = sum(A5.*conj(D4));
+		actual_energy_D5 = sum(D5.*conj(D5));
+		var = [relative_energy_D1,relative_energy_D2,relative_energy_D3,relative_energy_D4,relative_energy_D5,relative_energy_A5,actual_energy_D1,actual_energy_D2,actual_energy_D3,actual_energy_D4,actual_energy_D5,actual_energy_A5];
+		relative_set = [relative_set;var];
+		A5 = [];
+		D1 = [];
+		D2 = [];
+		D3 = [];
+		D4 = [];
+		D5 = [];
+	end
+end
