@@ -1,0 +1,29 @@
+temp = [];
+final = [];
+for i = 1:length(alpha)
+  for j = 1:20
+    energy_alpha = alpha(j,:,1,i);
+    energy_alpha = energy_alpha.*conj(energy_alpha);
+    energy_beta = beta(j,:,1,i);
+    energy_beta = energy_beta.*conj(energy_beta);
+    energy_delta = delta(j,:,1,i);
+    energy_delta = energy_delta.*conj(energy_delta);
+    energy_gamma = gamma(j,:,1,i);
+    energy_gamma = energy_gamma.*conj(energy_gamma);
+    energy_theta = theta(j,:,1,i);
+    energy_theta = energy_theta.*conj(energy_theta);
+    temp = [temp,sum(energy_alpha),sum(energy_beta),sum(energy_delta),sum(energy_theta),sum(energy_gamma)];
+  end
+final(i,:) = temp;
+temp = [];
+end
+energy_alpha = [];
+energy_beta = [];
+energy_delta = [];
+energy_theta = [];
+energy_gamma = [];
+alpha = [];
+beta = [];
+theta = [];
+gamma = [];
+delta = [];
