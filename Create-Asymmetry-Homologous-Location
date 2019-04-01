@@ -1,0 +1,13 @@
+lst = [1,2,3,7,9,11,12,15];
+lst2 = [4,5,6,8,10,13,14,16];
+v = [];
+asymetry = [];
+for i = 1:length(power)
+	for j = 1:length(lst)
+		for z = 1:4
+			v = [v,(power(i,lst(1,j)*5-5+z)-power(i,lst(1,j)*5-5+z))/(power(i,lst(1,j)*5-5+z)+power(i,lst(1,j)*5-5+z))];
+		end
+	end
+asymetry = [homolocation_coherrence;v];
+v = [];
+end
