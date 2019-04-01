@@ -5,7 +5,7 @@ asymetry = [];
 for i = 1:length(power)
 	for j = 1:length(lst)
 		for z = 1:4
-			v = [v,(power(i,lst(1,j)*5-5+z)-power(i,lst(1,j)*5-5+z))/(power(i,lst(1,j)*5-5+z)+power(i,lst(1,j)*5-5+z))];
+			v = [v,(power(i,lst(1,j)*5-5+z)-power(i,lst2(1,j)*5-5+z))/(power(i,lst(1,j)*5-5+z)+power(i,lst2(1,j)*5-5+z))];
 		end
 	end
 asymetry = [homolocation_coherrence;v];
