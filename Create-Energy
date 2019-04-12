@@ -15,24 +15,41 @@ gamma = reshape(gamma,[19 1000 1 (length(gamma)/1000)]);
 
 rest_label = [];
 temp = [];
-final = [];
+temp2 = [];
+energy_R1 = [];
+relative_energy_R1 = [];
 
 for i = 1:length(alpha)
 rest_label = 0;
   for j = 1:19
     energy_alpha = alpha(j,:,1,i);
     energy_alpha = energy_alpha.*conj(energy_alpha);
+    total_energy_alpha = sum(energy_alpha);
+    
     energy_beta = beta(j,:,1,i);
     energy_beta = energy_beta.*conj(energy_beta);
+    total_energy_beta = sum(energy_beta);
+    
     energy_delta = delta(j,:,1,i);
     energy_delta = energy_delta.*conj(energy_delta);
+    total_energy_delta = sum(energy_delta);
+    
     energy_gamma = gamma(j,:,1,i);
     energy_gamma = energy_gamma.*conj(energy_gamma);
+    total_energy_gamma = sum(energy_gamma);
+    
     energy_theta = theta(j,:,1,i);
     energy_theta = energy_theta.*conj(energy_theta);
-    temp = [temp,sum(energy_alpha),sum(energy_beta),sum(energy_delta),sum(energy_theta),sum(energy_gamma)];
+    total_energy_theta = sum(energy_theta);
+    
+    total_energy_bands = sum(total_energy_alpha,total_energy_beta,total_energy_delta,total_energy_theta,total_energy_gamma);
+    
+    temp = [temp,total_energy_alpha,total_energy_beta,total_energy_delta,total_energy_theta,total_energy_gamma];
+    temp2 = [temp2,total_energy_alpha/total_energy_bands,total_energy_beta/total_energy_bands,total_energy_delta/total_energy_bands,total_energy_theta/total_energy_bands,total_energy_gamma/total_energy_bands];]
   end
-final_R1(i,:) = temp;
+energy_R1(i,:) = temp;
+relative_energy_R1 = temp2;
+temp2 = [];
 temp = [];
 end
 energy_alpha = [];
