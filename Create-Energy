@@ -1,17 +1,17 @@
-alpha = alpha_R1(1:19,1:(idivide(length(alpha_R1),1000,'floor'))*1000);
-alpha = reshape(alpha,[19 1000 1 idivide(length(alpha),1000,'floor')]);
+alpha = alpha_R1(1:19,1:((length(alpha_R1)/1000))*1000);
+alpha = reshape(alpha,[19 1000 1 (length(alpha)/1000)]);
 
-beta = beta_R1(1:19,1:(idivide(length(beta_R1),1000,'floor'))*1000);
-beta = reshape(beta,[19 1000 1 idivide(length(beta),1000,'floor')]);
+beta = beta_R1(1:19,1:((length(beta_R1)/1000))*1000);
+beta = reshape(beta,[19 1000 1 (length(beta)/1000)]);
 
-theta = theta_R1(1:19,1:(idivide(length(theta_R1),1000,'floor'))*1000);
-theta = reshape(theta,[19 1000 1 idivide(length(theta),1000,'floor')]);
+theta = theta_R1(1:19,1:((length(theta_R1)/1000))*1000);
+theta = reshape(theta,[19 1000 1 (length(theta)/1000)]);
 
-delta = delta_R1(1:19,1:(idivide(length(delta_R1),1000,'floor'))*1000);
-delta = reshape(delta,[19 1000 1 idivide(length(delta),1000,'floor')]);
+delta = delta_R1(1:19,1:((length(delta_R1)/1000))*1000);
+delta = reshape(delta,[19 1000 1 (length(delta)/1000)]);
 
-gamma = gamma_R1(1:19,1:(idivide(length(gamma_R1),1000,'floor'))*1000);
-gamma = reshape(gamma,[19 1000 1 idivide(length(gamma),1000,'floor')]);
+gamma = gamma_R1(1:19,1:((length(gamma_R1)/1000))*1000);
+gamma = reshape(gamma,[19 1000 1 (length(gamma)/1000)]);
 
 rest_label = [];
 temp = [];
