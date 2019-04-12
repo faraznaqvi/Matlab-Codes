@@ -1,0 +1,61 @@
+all = [];
+
+testfiledir = 'E:\Test\faraz\EEG_segs\edf files\control';
+
+
+v = [];
+v = "R1";
+v(end+1) = "L2";
+v(end+1) = "L3";
+v(end+1) = "R2";
+
+for m = 1:length(v)
+% checking for files specific to the format
+matfiles = dir(fullfile(testfiledir,strcat('*',v(m),'.edf')));
+
+nfiles = length(matfiles);
+
+%  eliminating ._ files
+del = [];
+for i = 1:nfiles
+a = isempty(strfind(matfiles(i).name, '_'));
+if(a==0)
+del(end+1) = i;
+end
+end
+matfiles(del(1):del(length(del))) = [];
+
+
+% count of files
+nfiles = length(matfiles);
+
+% ====================================================================
+% For loop for reading all the files in the folder.
+Ytrain = [];
+%all = [];
+batches = {};
+for i = 1: nfiles
+
+% Variable initialization start:
+	eeg_data = [];
+	n = {};
+	
+  dimension = 19;
+    
+% Variable initialization end:
+% ====================================================================
+
+% Reading Signal from EDF file readEDF start:
+	[data_cnn, header] = readEDF(fullfile(testfiledir, matfiles(i).name));
+% Reading Signal from EDF file readEDF end:
+
+
+% Transforming the data into matrix format start:
+	
+	for transform=1:dimension
+		eeg_data(transform,:) = data_cnn{1,transform}(1:end)';
+	end
+	
+	all =[all,eeg_data];
+end
+end
