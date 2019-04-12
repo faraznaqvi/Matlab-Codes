@@ -58,4 +58,6 @@ for i = 1: nfiles
 	
 	all =[all,eeg_data];
 end
+final{end+1} = all;
+all = [];
 end
