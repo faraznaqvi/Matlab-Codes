@@ -45,7 +45,7 @@ rest_label = 0;
     total_energy_bands = sum(total_energy_alpha,total_energy_beta,total_energy_delta,total_energy_theta,total_energy_gamma);
     
     temp = [temp,total_energy_alpha,total_energy_beta,total_energy_delta,total_energy_theta,total_energy_gamma];
-    temp2 = [temp2,total_energy_alpha/total_energy_bands,total_energy_beta/total_energy_bands,total_energy_delta/total_energy_bands,total_energy_theta/total_energy_bands,total_energy_gamma/total_energy_bands];]
+    temp2 = [temp2,total_energy_alpha/total_energy_bands,total_energy_beta/total_energy_bands,total_energy_delta/total_energy_bands,total_energy_theta/total_energy_bands,total_energy_gamma/total_energy_bands];
   end
 energy_R1(i,:) = temp;
 relative_energy_R1 = temp2;
