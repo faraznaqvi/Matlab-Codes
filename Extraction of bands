@@ -1,0 +1,12 @@
+alpha_R1 = [];
+beta_R1 = [];
+delta_R1 = [];
+theta_R1 = [];
+gamma_R1 = [];
+for i =1:19
+  alpha_R1(i,:) = filter(alpha_filter,final{1}(i,:));
+  beta_R1(i,:) = filter(beta_filter,final{1}(i,:));
+  delta_R1(i,:) = filter(delta_filter,final{1}(i,:));
+  theta_R1(i,:) = filter(theta_filter,final{1}(i,:));
+  gamma_R1(i,:) = filter(gamma_filter,final{1}(i,:));
+end
