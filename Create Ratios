@@ -1,0 +1,9 @@
+v = [];
+ratio = [];
+for i = 1:length(final_relative_energy)
+for j = 0:18
+v = [v,final_relative_energy(i,(5*j)+3)/final_relative_energy(i,(5*j)+4),final_relative_energy(i,(5*j)+3)/final_relative_energy(i,(5*j)+1),final_relative_energy(i,(5*j)+3)/final_relative_energy(i,(5*j)+2),final_relative_energy(i,(5*j)+4)/final_relative_energy(i,(5*j)+1),final_relative_energy(i,(5*j)+4)/final_relative_energy(i,(5*j)+2),final_relative_energy(i,(5*j)+1)/final_relative_energy(i,(5*j)+2)];
+end
+ratio = [ratio;v];
+v = [];
+end
