@@ -1,3 +1,4 @@
+final = {};
 all = [];
 
 testfiledir = 'E:\Test\faraz\EEG_segs\edf files\control';
